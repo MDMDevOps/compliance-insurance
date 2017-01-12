@@ -1,0 +1,83 @@
+## Wordpress Stuff
+/wp-admin/
+/wp-includes/
+/wp-config.php
+/index.php
+/wp-activate.php
+/wp-blog-header.php
+/wp-comments-post.php
+/wp-config-sample.php
+/wp-cron.php
+/wp-links-opml.php
+/wp-load.php
+/wp-login.php
+/wp-mail.php
+/wp-settings.php
+/wp-signup.php
+/wp-trackback.php
+/xmlrpc.php
+/license.txt
+/readme.html
+
+## WP Content stuff we don’t want to track
+/wp-content/themes/twenty*
+/wp-content/themes/MPress
+/wp-content/upgrade
+/wp-content/uploads
+/sitemap.*
+/mockup
+
+*.sql
+
+# Flywheel stuff
+/flywheel-config
+.fw-config.php
+
+# Hidden files
+*.DS_Store
+*Thumbs.db
+*.sass-cache*
+*~imageoptim*
+
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.bz2
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.tgz
+
+# Logs and databases #
+######################
+*.log
+*.sql
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+._*
+
+# Vim generated files #
+######################
+*.un~
+
+# SASS #
+##########
+.sass-cache
+
+# codekit #
+##########
+config.codekit
+.codekit-cache/
+
+# dev dependencies #
+####################
+node_modules/

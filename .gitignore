@@ -1,0 +1,65 @@
+## Wordpress Stuff
+/wp-config.php
+
+## WP Content stuff we don’t want to track
+/themes/twenty*
+/upgrade
+/uploads
+/sitemap.*
+/mockup
+
+
+# Flywheel stuff
+/flywheel-config
+.fw-config.php
+
+# Hidden files
+*.DS_Store
+*Thumbs.db
+*.sass-cache*
+*~imageoptim*
+
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.bz2
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.tgz
+
+# Logs and databases #
+######################
+*.log
+*.sql
+error_log
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+._*
+
+# Vim generated files #
+######################
+*.un~
+*.idea
+
+# SASS #
+##########
+.sass-cache
+
+# codekit #
+##########
+config.codekit
+.codekit-cache/
+
+# dev dependencies #
+####################
+node_modules

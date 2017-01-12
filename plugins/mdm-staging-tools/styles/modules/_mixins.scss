@@ -1,0 +1,250 @@
+/* -----------------------------------------------------------------------------
+ *                       __  ____            ____
+ *                      /  |/  (_)  __      /  _/___  _____
+ *                     / /|_/ / / |/_/_____ / // __ \/ ___/
+ *                    / /  / / />  </_____// // / / (__  )
+ *                   /_/  /_/_/_/|_|     /___/_/ /_/____/
+ *
+ * ---------------------------------------------------------------------------*/
+ @mixin clearfix {
+    &:after, &:before {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+@mixin breakpoint( $break ) {
+    @if map-has-key( $breakpoints, $break ) {
+        @media ( min-width: #{ map-get( $breakpoints, $break ) } ) {
+            @content;
+        }
+    }
+    @else {
+        @media ( $break ) {
+            @content;
+        }
+    }
+}
+
+@mixin image-replacement( $image ) {
+        display: block;
+        background-image: url( $image );
+        background-repeat: no-repeat;
+        text-indent: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+@mixin flexbox( $direction ) {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    @if( $direction == 'row' ) {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+    }
+    @if( $direction == 'column' ) {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+}
+
+@mixin grid( $size ) {
+    [class*="#{$size}"] {
+        &.column, &.col, &.columns, &.cols {
+            float : left;
+            &:last-child, .last { float: right; }
+            &.end { float: left; } // keeps last child from getting float: right
+        }
+    }
+    .column, .col, .columns, .cols {
+        &.#{$size}-1  { width: 8.33333%; }
+        &.#{$size}-1  { width: 8.33333%; }
+        &.#{$size}-2  { width: 16.66667%; }
+        &.#{$size}-3  { width: 25%; }
+        &.#{$size}-4  { width: 33.33333%; }
+        &.#{$size}-5  { width: 41.66667%; }
+        &.#{$size}-6  { width: 50%; }
+        &.#{$size}-7  { width: 58.33333%; }
+        &.#{$size}-8  { width: 66.66667%; }
+        &.#{$size}-9  { width: 75%; }
+        &.#{$size}-10 { width: 83.33333%; }
+        &.#{$size}-11 { width: 91.66667%; }
+        &.#{$size}-12 { width: 100%; }
+        &.#{$size}-push-0 {
+            position: relative;
+            left: 0;
+            right: auto;
+        }
+        &.#{$size}-push-1 {
+            position: relative;
+            left: 8.33333%;
+            right: auto;
+        }
+        &.#{$size}-push-2 {
+            position: relative;
+            left: 16.66667%;
+            right: auto;
+        }
+        &.#{$size}-push-3 {
+            position: relative;
+            left: 25%;
+            right: auto;
+        }
+        &.#{$size}-push-4 {
+            position: relative;
+            left: 33.33333%;
+            right: auto;
+        }
+        &.#{$size}-push-5 {
+            position: relative;
+            left: 41.66667%;
+            right: auto;
+        }
+        &.#{$size}-push-6 {
+            position: relative;
+            left: 50%;
+            right: auto;
+        }
+        &.#{$size}-push-7 {
+            position: relative;
+            left: 58.33333%;
+            right: auto;
+        }
+        &.#{$size}-push-8 {
+            position: relative;
+            left: 66.66667%;
+            right: auto;
+        }
+        &.#{$size}-push-9 {
+            position: relative;
+            left: 75%;
+            right: auto;
+        }
+        &.#{$size}-push-10 {
+            position: relative;
+            left: 83.33333%;
+            right: auto;
+        }
+        &.#{$size}-push-11 {
+            position: relative;
+            left: 91.66667%;
+            right: auto;
+        }
+        &.#{$size}-pull-0 {
+            position: relative;
+            right: 0;
+            left: auto;
+        }
+        &.#{$size}-pull-1 {
+            position: relative;
+            right: 8.33333%;
+            left: auto;
+        }
+        &.#{$size}-pull-2 {
+            position: relative;
+            right: 16.66667%;
+            left: auto;
+        }
+        &.#{$size}-pull-3 {
+            position: relative;
+            right: 25%;
+            left: auto;
+        }
+        &.#{$size}-pull-4 {
+            position: relative;
+            right: 33.33333%;
+            left: auto;
+        }
+        &.#{$size}-pull-5 {
+            position: relative;
+            right: 41.66667%;
+            left: auto;
+        }
+        &.#{$size}-pull-6 {
+            position: relative;
+            right: 50%;
+            left: auto;
+        }
+        &.#{$size}-pull-7 {
+            position: relative;
+            right: 58.33333%;
+            left: auto;
+        }
+        &.#{$size}-pull-8 {
+            position: relative;
+            right: 66.66667%;
+            left: auto;
+        }
+        &.#{$size}-pull-9 {
+            position: relative;
+            right: 75%;
+            left: auto;
+        }
+        &.#{$size}-pull-10 {
+            position: relative;
+            right: 83.33333%;
+            left: auto;
+        }
+        &.#{$size}-pull-11 {
+            position: relative;
+            right: 91.66667%;
+            left: auto;
+        }
+        &.#{$size}-offset-0 { margin-left: 0 !important; }
+        &.#{$size}-offset-1 { margin-left: 8.33333% !important; }
+        &.#{$size}-offset-2 { margin-left: 16.66667% !important; }
+        &.#{$size}-offset-3 { margin-left: 25% !important; }
+        &.#{$size}-offset-4 { margin-left: 33.33333% !important; }
+        &.#{$size}-offset-5 { margin-left: 41.66667% !important; }
+        &.#{$size}-offset-6 { margin-left: 50% !important; }
+        &.#{$size}-offset-7 { margin-left: 58.33333% !important; }
+        &.#{$size}-offset-8 { margin-left: 66.66667% !important; }
+        &.#{$size}-offset-9 { margin-left: 75% !important; }
+        &.#{$size}-offset-10 { margin-left: 83.33333% !important; }
+        &.#{$size}-offset-11 { margin-left: 91.66667% !important; }
+        &.#{$size}-reset-order {
+            float: left;
+            left: auto;
+            right: auto;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        &.#{$size}-centered {
+            margin-left: auto;
+            margin-right: auto;
+            float: none;
+        }
+        &.#{$size}-uncentered {
+            float: left;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        &.#{$size}-end { float: left; } // keeps last child from getting float: right
+        &.#{$size}-centered:last-child { float: none; } // keep last-child from getting float: right
+        &.#{$size}-uncentered:last-child { float: left; } // keep last-child from getting float: right
+        &.#{$size}-uncentered.opposite { float: right; }
+        .row {
+            &.#{$size}-collapse > .column {
+                padding-right: 0;
+                padding-left: 0;
+            }
+            &.#{$size}-collapse .row {
+                margin-left: 0;
+                margin-right: 0;
+            }
+            &.#{$size}-uncollapse > .column {
+                padding-right: .809rem;
+                padding-left: .809rem;
+            }
+        } // end .row collapse
+    }
+}

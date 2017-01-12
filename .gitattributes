@@ -1,0 +1,4 @@
+*/dist/*.css merge=theirs
+*/dist/*.css.map merge=theirs
+*/dist/*.min.js merge=theirs
+*/dist/*.js.map merge=theirs

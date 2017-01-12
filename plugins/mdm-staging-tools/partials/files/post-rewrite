@@ -1,0 +1,12 @@
+if [[ $1 = "rebase" ]]; then
+    echo "\nRebuiling compiled files post $1..."
+
+    grunt compass
+    grunt autoprefixer
+    grunt clean
+    grunt uglify
+
+    echo "Adding built files to the last commit"
+    git add -u
+    git commit --amend --no-edit
+fi
