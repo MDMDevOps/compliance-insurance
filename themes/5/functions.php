@@ -50,6 +50,7 @@ require_once( 'library/admin.php' ); // this comes turned off by default
 // Thumbnail sizes
 add_image_size( 'bones-thumb-600', 600, 150, true );
 add_image_size( 'bones-thumb-300', 300, 100, true );
+add_image_size( '300-square', 300, 300, true );
 /*
 to add more sizes, simply copy a line from above
 and change the dimensions & name. As long as you
@@ -83,7 +84,7 @@ function bones_register_sidebars() {
 		'before_title' => '<h4 class="widgettitle">',
 		'after_title' => '</h4>',
 	));
-	
+
 		register_sidebar(array(
 		'id' => 'home1',
 		'name' => __( 'Home 1', 'bonestheme' ),
@@ -93,7 +94,7 @@ function bones_register_sidebars() {
 		'before_title' => '<h4 class="widgettitle">',
 		'after_title' => '</h4>',
 	));
-	
+
 	register_sidebar(array(
 		'id' => 'home2',
 		'name' => __( 'Home 2', 'bonestheme' ),
@@ -103,7 +104,7 @@ function bones_register_sidebars() {
 		'before_title' => '<h4 class="widgettitle">',
 		'after_title' => '</h4>',
 	));
-	
+
 	register_sidebar(array(
 		'id' => 'home3',
 		'name' => __( 'Home 3', 'bonestheme' ),
@@ -113,7 +114,7 @@ function bones_register_sidebars() {
 		'before_title' => '<h4 class="widgettitle">',
 		'after_title' => '</h4>',
 	));
-	
+
 		register_sidebar(array(
 		'id' => 'footer1',
 		'name' => __( 'Footer 1', 'bonestheme' ),
@@ -123,7 +124,7 @@ function bones_register_sidebars() {
 		'before_title' => '<h4 class="widgettitle">',
 		'after_title' => '</h4>',
 	));
-	
+
 		register_sidebar(array(
 		'id' => 'footer2',
 		'name' => __( 'Footer 2', 'bonestheme' ),
@@ -212,4 +213,12 @@ function bones_wpsearch($form) {
 } // don't remove this bracket!
 
 
-?>
+function add_featured_image_size() {
+	add_image_size( 'theme-featured-images', 840,  395, true );
+}
+add_action( 'after_setup_theme', 'add_featured_image_size' );
+
+function current_year() {
+	return date('Y');
+}
+add_shortcode( 'current_year', 'current_year' );

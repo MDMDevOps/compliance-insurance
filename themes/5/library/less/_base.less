@@ -186,18 +186,18 @@ h5, .h5 {
 *********************/
 
 .header {
+	margin-top: 30px;
 	#inner-header {}
 
 	#logo {
-		background: @white;
-		background: rgba(255,255,255,.85);
-		margin-top: 15px;
-		
+
 		img{
 			display: block;
-			margin: 0 auto;
+			margin: 0 auto 1.618rem;
 			padding: 25px 15px;
 			max-width: 100%;
+			background: rgba(255, 255, 255, 0.9);
+			box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 		}
 	}
 
@@ -229,31 +229,51 @@ and more scalable.
 .nav {
 	border-bottom: 0;
 	margin: 0;
-	
-	ul{
+	ul {
 		margin:0;
 	}
 
 	li {
+		//border-bottom: 1px solid rgba(0, 0, 0, .05 );
+		&.current_page_item, &.current_menu_item {
+			a, a:link {
+				background: @color1;
+				color: #fff;
+			}
+		}
+		a, a:link {
+			display: block;
+			text-decoration: none;
+			padding: 10px 10px;
+			padding: 15px 15px;
+			transform: translate3d( 0, 0, 0 );
+			background: rgba( 255, 255, 255, .9 );
+			box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+			transition:  all 0.3s cubic-bezier(.25,.8,.25,1);
+			border-bottom: 1px solid rgba(0, 0, 0, .05 );
 
-		a {
+			&:hover, &:focus {
+				transform: translate3d( 1rem, 0, 0 );
+			}
+			/*
 			display: block;
 			text-decoration: none;
 			padding: 15px 15px;
-			background: @white;
-			color: @darkgrey;
 			font-weight: 600;
 			text-align: center;
-
-			/*
-			remember this is for mobile ONLY, so there's no need
-			to even declare hover styles here, you can do it in
-			the style.scss file where it's relevant. We want to
-			keep this file as small as possible!
-			*/
+			background: #FFF;
+			border-radius: 0;
+			box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+			margin-bottom: 0;
+			transition:  all 0.3s cubic-bezier(.25,.8,.25,1);
 			&:hover, &:focus {
-				color: @darkgrey;
+				transform: translate3d( 1rem, 0, 0 );
+				//box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+				color: @color2;
+				//background: rgba( 255, 255, 255, .9 );
+				//box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 			}
+			*/
 		}
 
 		&:first-child {}
@@ -315,13 +335,15 @@ a.meanmenu-reveal {
 /* when under viewport size, .mean-container is added to body */
 .mean-container .mean-bar {
 	position: relative;
-	background: @white;
+	background: none;
 	z-index: 100;
+	margin-bottom: 1.618rem;
 }
 
 .mean-container a.meanmenu-reveal {
 	cursor: pointer;
-	color: @color1;
+	color: #fff;
+	background: @color1;
 	text-decoration: none;
 	font-size: 15px;
 	padding: 15px 25px;
@@ -418,9 +440,14 @@ a.meanmenu-reveal {
 08. POSTS & CONTENT STYLES
 *********************/
 
+
+
 #content {
 	background: @white;
-	background: rgba(255,255,255,.85);
+	background: rgba(255,255,255,.9);
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	font-weight: 300;
+	overflow: hidden;
 
 	#inner-content {
 		padding: 15px 30px;
@@ -588,12 +615,12 @@ a.meanmenu-reveal {
 		.size-large {}
 		.size-medium {}
 		.size-thumbnail {}
-		
+
 .ngg-gallery-thumbnail-box .ngg-gallery-thumbnail img {
 	border: none;
 	padding: 5px;
 	background-color: transparent;
-	
+
 	&:hover {
 		background: @white !important;
 	}
@@ -622,7 +649,7 @@ a.meanmenu-reveal {
 
 			a {
 				padding: 5px 10px;
-				text-decoration: none; 
+				text-decoration: none;
 
 				&:hover,
 				&:focus {
@@ -901,7 +928,7 @@ a.meanmenu-reveal {
 
 	form {
 		margin: 0.75em 0;
-		
+
 		.validation_error {
 			color: @alert-red;
 			font-weight: 600;
@@ -912,24 +939,24 @@ a.meanmenu-reveal {
 			clear: both;
 			margin-left: 0;
 			margin-bottom: 15px;
-			
+
 			&.gfield_error {
 				background: none;
 				border: none;
 				font-weight: 500;
-				
+
 				label {
 					color: @alert-red;
 				}
-				 
+
 				span {
-					 color: @alert-red; 
+					 color: @alert-red;
 				}
-				
+
 				input, textarea {
 					border: none;
 				}
-				
+
 				div.validation_message {
 					color: @alert-red;
 				}
@@ -1042,9 +1069,9 @@ a.meanmenu-reveal {
 		}
 
 	}
-	
-#sidenavslider{
-	padding: 15px;
+
+#sidenavslider {
+
 }
 
 #home1,
@@ -1054,7 +1081,7 @@ a.meanmenu-reveal {
 }
 
 .socialmedia-buttons img{
-	
+
 	&:hover, &:focus {
 	}
 }
@@ -1067,7 +1094,7 @@ a.meanmenu-reveal {
 
 /*********************
 REV SLIDER STYLES
-*********************/		
+*********************/
 
 .tp-bullets.simplebullets.round .bullet{
 	background: url(../images/bullet.png) no-repeat scroll left top rgba(0, 0, 0, 0);
@@ -1093,15 +1120,15 @@ REV SLIDER STYLES
 	clear: both;
 	color: @white;
 	text-align: center;
-	
+
 	a{
 		color: @white;
-		
+
 		&:hover, &:focus {
 			color: @white;
 		}
 	}
-	
+
 	#inner-footer {
 	}
 	nav {
@@ -1139,3 +1166,49 @@ REV SLIDER STYLES
 
 	.copyright {}
 
+#inner-header-wrapper {
+	padding: 0;
+	//background: rgba( 255, 255, 255, .9 );
+	//box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+table, .table {
+	margin: 0 0 1.618rem;
+	width: 100%;
+	max-width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	th {
+		padding: .4rem .809rem;
+		border: 1px solid rgba( 0, 0, 0, .3 );
+	}
+	td {
+		padding: .4rem .809rem;
+		line-height: 1.608;
+		vertical-align: middle;
+		border: 1px solid rgba( 0, 0, 0, .3 );
+	}
+}
+figure.the-post-thumbnail {
+	margin: -15px -30px 0;
+}
+
+.article-header.has-featured-image {
+	background-size: cover;
+	padding-top: 12.5%;
+	padding-bottom: 12.5%;
+	background-position: 50% 50%;
+	margin: -15px -30px;
+	margin-bottom: 1.618rem;
+	h1 {
+		box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+		background: #001c58;
+		display: inline-block;
+		padding: 0 1.618rem;
+		color: #fff;
+		border: none;
+	}
+}
+img.circle-image, .circle-image img {
+	border-radius: 50%;
+}

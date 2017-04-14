@@ -5,17 +5,19 @@
 				<div id="inner-content" class="wrap clearfix">
 
 						<div id="main" class="clearfix" role="main">
-                        
+
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 							<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
-
-								<header class="article-header">
-
-									<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
-
-
-								</header> <!-- end article header -->
+								<?php if( has_post_thumbnail() ) : ?>
+									<header class="article-header has-featured-image" style="background-image: url( <?php echo get_the_post_thumbnail_url( $post, 'theme-featured-images' ); ?>);">
+										<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
+									</header> <!-- end article header -->
+								<?php else: ?>
+									<header class="article-header">
+										<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
+									</header> <!-- end article header -->
+								<?php endif; ?>
 
 								<section class="entry-content clearfix" itemprop="articleBody">
 									<?php the_content(); ?>
